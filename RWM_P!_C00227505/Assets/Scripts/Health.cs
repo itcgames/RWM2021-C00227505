@@ -10,9 +10,7 @@ public class Health : MonoBehaviour
 
     public int numOfHearts;
 
-    public Image[] hearts;
-    public Sprite FullHeart;
-
+    public GameObject[,] hearts;
 
     void Update()
     {
@@ -27,12 +25,12 @@ public class Health : MonoBehaviour
 
             if(i < health)
             {
-                hearts[i].enabled = true;
-                hearts[i].sprite = FullHeart;
+                //hearts[i].enabled = true;
+                //hearts[i].sprite = FullHeart;
             }
             else
             {
-                hearts[i].enabled = false;
+                //hearts[i].enabled = false;
             }
 
 
