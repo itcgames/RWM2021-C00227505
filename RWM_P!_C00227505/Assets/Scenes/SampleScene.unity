@@ -285,6 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 2009101877}
   sprite: {fileID: 3162325476531571353, guid: ec92962511b59694ab3e5afecf8f1fb7, type: 3}
+  fullHeart: {fileID: 21300000, guid: 44d29a0bb78bde045882f904d0523910, type: 3}
+  emptyHeart: {fileID: 21300000, guid: ac6b614adb4870243b807db83ad2ff2c, type: 3}
   numOfRows: 3
   spriteWidth: 15
   spriteHeight: 15
