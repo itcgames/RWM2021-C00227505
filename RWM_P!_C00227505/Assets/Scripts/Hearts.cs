@@ -49,23 +49,20 @@ public class Hearts : MonoBehaviour
     {
         int num = 0;
 
-        for (int i = 0; i < numOfRows; i++)
+        foreach (GameObject heart in hearts)
         {
-            for (int y = 0; y < numOfCol; y++)
+            if (num < Player.GetComponent<Health>().health && num < numOfHearts)
             {
-                if (num < Player.GetComponent<Health>().health && num < numOfHearts)
-                {
-                    hearts[i, y].GetComponent<Image>().sprite = fullHeart;
-                    num++;
-                }
-                else if (num < numOfHearts)
-                {
-                    hearts[i, y].GetComponent<Image>().sprite = emptyHeart;
-                    num++;
-                }
-
+                heart.GetComponent<Image>().sprite = fullHeart;
+                num++;
+            }
+            else if (num < numOfHearts)
+            {
+                heart.GetComponent<Image>().sprite = emptyHeart;
+                num++;
             }
         }
+
     }
 
 
@@ -77,16 +74,21 @@ public class Hearts : MonoBehaviour
 
         hearts = new GameObject[numOfRows, numOfCol];
 
-        for (int i = 0; i < numOfRows; i++)
+        foreach (GameObject heart in hearts)
+        {
+            Destroy(heart);
+        }
+
+
+        for (int x = 0; x < numOfRows; x++)
         {
             for (int y = 0; y < numOfCol; y++)
             {
                 if (num < numOfHearts)
                 {
-                    hearts[i, y] = Instantiate(sprite, transform.position + (new Vector3(spriteWidth * y, spriteHeight * -i, 0)), Quaternion.identity, transform);
+                    hearts[x, y] = Instantiate(sprite, transform.position + (new Vector3(spriteWidth * y, spriteHeight * -x, 0)), Quaternion.identity, transform);
                     num++;
                 }
-
             }
         }
     }
