@@ -29,7 +29,7 @@ public class Hearts : MonoBehaviour
 
     public GameObject[,] hearts;
 
-
+    public int activeHearts;
 
     private void Start()
     {
@@ -55,6 +55,8 @@ public class Hearts : MonoBehaviour
             {
                 heart.GetComponent<Image>().sprite = fullHeart;
                 num++;
+
+                activeHearts = num;
             }
             else if (num < numOfHearts)
             {

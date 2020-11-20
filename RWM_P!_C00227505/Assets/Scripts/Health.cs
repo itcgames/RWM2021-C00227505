@@ -21,12 +21,12 @@ public class Health : MonoBehaviour
            
     }
 
-    void takeDmg()
+    public void  takeDmg()
     {
         health--;
     }
 
-    void heal()
+    public void heal()
     {
         health++;
     }
