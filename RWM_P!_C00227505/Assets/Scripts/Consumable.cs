@@ -11,19 +11,29 @@ public class Consumable : MonoBehaviour
 
     public int amount;
 
+    public bool usable;
+
     private Text amountText;
 
-    private Font arial;
+    public Font font = null;
 
     // Start is called before the first frame update
     void Start()
     {
-   
-        arial = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
 
         gameObject.AddComponent<Text>();
         amountText = gameObject.GetComponent<Text>();
-        amountText.font = arial;
+
+        if (font == null)
+        {
+            Font arial = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+            amountText.font = arial;
+        }
+        else
+        {
+            amountText.font = font;
+        }
+      
         amountText.text = "X" + amount.ToString() ;
         amountText.fontSize = 24;
        
@@ -31,8 +41,6 @@ public class Consumable : MonoBehaviour
         float Width = ConsumablePrefab.GetComponent<RectTransform>().rect.width;
 
         float height = ConsumablePrefab.GetComponent<RectTransform>().rect.height * 0.60f;
-
-        Debug.Log(Width + " " + height);
 
         Instantiate(ConsumablePrefab, transform.position - new Vector3(Width, -height,0), Quaternion.identity, transform);
 
@@ -56,24 +64,25 @@ public class Consumable : MonoBehaviour
         amount++;
     }
 
-    public void use()
+    public void use(int t_num = 1)
     {
-        if (ConsumablePrefab.GetComponent<HealthPotion>() != null)
-        {
-            ConsumablePrefab.GetComponent<HealthPotion>().setPlayer(Player);
-
-            
-        }
-
-        if (amount > 0)
+        if (usable == true)
         {
             if (ConsumablePrefab.GetComponent<HealthPotion>() != null)
             {
-                if (Player.GetComponent<Health>().health < Player.GetComponent<Health>().numOfHearts)
-                {
-                    ConsumablePrefab.GetComponent<HealthPotion>().use();
+                ConsumablePrefab.GetComponent<HealthPotion>().setPlayer(Player);
+            }
 
-                    amount--;
+            if (amount > 0)
+            {
+                if (ConsumablePrefab.GetComponent<HealthPotion>() != null)
+                {
+                    if (Player.GetComponent<Health>().health < Player.GetComponent<Health>().numOfHearts)
+                    {
+                        ConsumablePrefab.GetComponent<HealthPotion>().use();
+
+                        amount -= t_num;
+                    }
                 }
             }
         }

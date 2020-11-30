@@ -189,6 +189,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3894803401724084625, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894803401724084625, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
       propertyPath: ConsumablePrefab
@@ -198,17 +208,32 @@ PrefabInstance:
     - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
       propertyPath: amount
-      value: 23
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 300027028}
+    - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: usable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030006130157715284, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: numOfHearts
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4571560861723274618, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
       propertyPath: m_Name
       value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020857285787003801, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: numOfRows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738a3022162ff8a4681a401fddcb3632, type: 3}
