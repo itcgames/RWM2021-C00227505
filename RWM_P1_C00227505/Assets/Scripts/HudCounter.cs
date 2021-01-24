@@ -70,7 +70,7 @@ public class HudCounter : MonoBehaviour
        
     }
 
-    void addAmount(int t_num = 1)
+    public void addAmount(int t_num = 1)
     {
         amount += t_num;
 
@@ -80,7 +80,7 @@ public class HudCounter : MonoBehaviour
         }
     }
 
-    void removeAmount(int t_num = 1)
+    public void removeAmount(int t_num = 1)
     {
         amount -= t_num;
 
@@ -90,7 +90,7 @@ public class HudCounter : MonoBehaviour
         }
     }
 
-    int getAmount()
+    public int getAmount()
     {
         return amount;
     }
