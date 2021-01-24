@@ -20,10 +20,7 @@ public class Consumable : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-   
-        
-
+    { 
         gameObject.AddComponent<Text>();
         amountText = gameObject.GetComponent<Text>();
       
