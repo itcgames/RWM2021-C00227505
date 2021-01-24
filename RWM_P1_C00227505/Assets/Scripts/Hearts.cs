@@ -20,7 +20,6 @@ public class Hearts : MonoBehaviour
     //players max Health
     private int numOfHearts;
 
-
     public int numOfRows;
     private int numOfCol;
 
@@ -29,25 +28,22 @@ public class Hearts : MonoBehaviour
 
     public GameObject[,] hearts;
 
+
     public int activeHearts;
 
     private void Start()
     {
-               
 
         numOfHearts = Player.GetComponent<Health>().numOfHearts;
-
-
-
-        createHearts();
-       
-
-     
+        
+        createHearts(numOfHearts);    
     }
 
     private void Update()
     {
         int num = 0;
+
+     
 
         foreach (GameObject heart in hearts)
         {
@@ -64,15 +60,14 @@ public class Hearts : MonoBehaviour
                 num++;
             }
         }
-
     }
 
 
-    private void createHearts()
+    public void createHearts(int t_heartNum = 1)
     {
         int num = 0;
 
-        numOfCol = Mathf.CeilToInt(((float)numOfHearts / (float)numOfRows));
+        numOfCol = Mathf.CeilToInt(((float)t_heartNum / (float)numOfRows));
 
         hearts = new GameObject[numOfRows, numOfCol];
 
@@ -86,13 +81,13 @@ public class Hearts : MonoBehaviour
         {
             for (int y = 0; y < numOfCol; y++)
             {
-                if (num < numOfHearts)
+                if (num < t_heartNum)
                 {
                     hearts[x, y] = Instantiate(sprite, transform.position + (new Vector3(spriteWidth * y, spriteHeight * -x, 0)), Quaternion.identity, transform);
                     num++;
                 }
             }
         }
-    }
+    }   
 
 }

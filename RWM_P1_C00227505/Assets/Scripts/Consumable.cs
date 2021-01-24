@@ -13,68 +13,84 @@ public class Consumable : MonoBehaviour
 
     private Text amountText;
 
-    private Font arial;
+
+    public int textSize;
+
+    public Font font = null;
 
     // Start is called before the first frame update
     void Start()
     {
    
-        arial = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+        
 
         gameObject.AddComponent<Text>();
         amountText = gameObject.GetComponent<Text>();
-        amountText.font = arial;
-        amountText.text = "X" + amount.ToString() ;
-        amountText.fontSize = 24;
-       
+      
+        if (font == null)
+        {
+            Font arial = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+            amountText.font = arial;
+        }
+        else
+        {
+            amountText.font = font;
+        }
 
-        float Width = ConsumablePrefab.GetComponent<RectTransform>().rect.width;
-
-        float height = ConsumablePrefab.GetComponent<RectTransform>().rect.height * 0.60f;
-
-        Debug.Log(Width + " " + height);
-
-        Instantiate(ConsumablePrefab, transform.position - new Vector3(Width, -height,0), Quaternion.identity, transform);
+        amountText.text = "X " + amount.ToString();
+        amountText.fontSize = textSize;
+        amountText.alignment = TextAnchor.MiddleCenter;
 
 
+        // Instantiate(ConsumablePrefab, transform.position - new Vector3(Width, -height,0), Quaternion.identity, transform);
+
+        float Width = 30;
+
+        Instantiate(ConsumablePrefab, transform.position - new Vector3(Width, 0, 0), Quaternion.identity, transform);
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        amountText.text = "X" + amount.ToString();
+        amountText.text = "X " + amount.ToString();
+    }
 
+    public void AddAmount(int num = 1)
+    {
+        amount += num;
+    }
 
-        if (Input.GetMouseButtonDown(0))
+    public void removeAmount(int num = 1)
+    {
+        if (amount - num >= 0)
         {
-            use();
+            amount -= num;
         }
     }
 
-    public void AddAmount()
+    public void setAmount(int num)
     {
-        amount++;
+        amount = num;
     }
 
-    public void use()
+    public int getAmount()
     {
-        if (ConsumablePrefab.GetComponent<HealthPotion>() != null)
-        {
-            ConsumablePrefab.GetComponent<HealthPotion>().setPlayer(Player);
+        return amount;
+    }
 
-            
-        }
-
+    public void use(int t_num = 1)
+    {
         if (amount > 0)
         {
-            if (ConsumablePrefab.GetComponent<HealthPotion>() != null)
+            if (amount - t_num >= 0)
             {
-                if (Player.GetComponent<Health>().health < Player.GetComponent<Health>().numOfHearts)
-                {
-                    ConsumablePrefab.GetComponent<HealthPotion>().use();
+                ConsumablePrefab.GetComponent<HealthPotion>().setPlayer(Player);
 
-                    amount--;
-                }
+                ConsumablePrefab.GetComponent<HealthPotion>().use();
+                       
+                amount -= t_num;
             }
         }
     }

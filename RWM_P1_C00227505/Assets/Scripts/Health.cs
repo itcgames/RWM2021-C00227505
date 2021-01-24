@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+
+    public GameObject HudHealth;
+
     public int health;
 
     public int numOfHearts;
-      
+          
 
     void Update()
     {
@@ -18,7 +21,6 @@ public class Health : MonoBehaviour
         {
             health = numOfHearts;
         }
-           
     }
 
     public void  takeDmg()
@@ -29,5 +31,12 @@ public class Health : MonoBehaviour
     public void heal()
     {
         health++;
+    }
+
+    public void setMaxHeart(int num)
+    {
+        numOfHearts = num;
+
+        HudHealth.GetComponent<Hearts>().createHearts(numOfHearts);
     }
 }

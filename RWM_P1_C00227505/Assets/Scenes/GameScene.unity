@@ -121,12 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &300027028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3987404099041382994, guid: 738a3022162ff8a4681a401fddcb3632,
-    type: 3}
-  m_PrefabInstance: {fileID: 2916179646274197617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2916179646274197617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,22 +183,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
+    - target: {fileID: 2460770485185601133, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
-      propertyPath: ConsumablePrefab
-      value: 
-      objectReference: {fileID: 2833885741463147011, guid: 2515fb04c548ad74e96efe17f64a5565,
-        type: 3}
-    - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
-        type: 3}
-      propertyPath: amount
-      value: 23
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3894803401724084628, guid: 738a3022162ff8a4681a401fddcb3632,
+    - target: {fileID: 2460770485185601133, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 300027028}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2928403184980148568, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2928403184980148568, guid: 738a3022162ff8a4681a401fddcb3632,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4571560861723274618, guid: 738a3022162ff8a4681a401fddcb3632,
         type: 3}
       propertyPath: m_Name
